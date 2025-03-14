@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
 
-class Timesheet(@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "M-yyyy") private val month: YearMonth, val days: List<Day>) {
+class Timesheet(@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "M-yyyy") val month: YearMonth, val days: List<Day>) {
 
     override fun toString(): String {
         var result = getMonthDisplay()

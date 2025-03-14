@@ -15,5 +15,14 @@ class LocationController(private val repository: LocationRepository) {
     fun locations(): Iterable<Location> = repository.findAll()
 
     @PostMapping
-    fun save(@Valid @RequestBody location: Location): Location = repository.save(location)
+    fun save(@Valid @RequestBody location: Location): Location {
+        val days = location.defaultDays
+        if (days.isNotEmpty()) {
+            // remove default day from other locations
+            repository.findAll()
+                .filter { it -> it.defaultDays.removeAll { it in days } }
+                .onEach { repository.save(it) }
+        }
+        return repository.save(location)
+    }
 }

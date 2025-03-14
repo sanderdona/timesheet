@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service
 @Service
 class TimesheetExcelWriter: AbstractExcelWriter() {
 
-    override fun name(): String {
-        return "Timesheet"
-    }
+    override fun name(): String = "Timesheet"
 
     override fun write(workbook: Workbook, sheet: Sheet, timesheet: Timesheet) {
         sheet.setColumnWidth(0, 6000)

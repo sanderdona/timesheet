@@ -11,7 +11,7 @@ class TimesheetDay(
     var id: Long? = null,
 
     @Column(nullable = false, columnDefinition = "DATE")
-    var date: LocalDate?,
+    var date: LocalDate? = null,
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

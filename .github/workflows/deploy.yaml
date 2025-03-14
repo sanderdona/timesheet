@@ -23,4 +23,4 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
       - name: Build and push Docker image
-        run: mvn clean install package
+        run: mvn clean package
